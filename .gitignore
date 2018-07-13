@@ -1,0 +1,12 @@
+.env
+phinx.yml
+/vendor
+/node_modules
+/.git
+/public/css
+/public/js
+/public/css/main.css
+/public/js/main.js
+composer.lock
+package-lock.json
+/cache

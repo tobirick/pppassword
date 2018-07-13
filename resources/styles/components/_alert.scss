@@ -1,0 +1,17 @@
+.alert {
+    position: absolute;
+    top: 0;
+    right: 0;
+    left: 0;
+    width: 100%;
+    z-index: 99;
+    padding: 1rem;
+    color: #fff;
+    &--error {
+        background-color: $error-color;
+    }
+
+    &--success {
+        background-color: $primary-color;
+    }
+}

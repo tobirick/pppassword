@@ -1,0 +1,44 @@
+.sidebar {
+    z-index: 9;
+    flex: 0 0 15%;
+    background-color: #fff;
+    box-shadow: 0 3px 6px rgba(0, 0, 0, 0.16), 0 3px 6px rgba(0, 0, 0, 0.23);
+    &__top {
+        text-align: center;
+        margin-bottom: 3rem;
+        margin-top: 3rem;
+    }
+    &__logo {
+        font-size: 150%;
+        & h1 {
+            display: inline-block;
+            margin-right: -7px;
+            color: $primary-color;
+        }
+    }
+
+    &__nav-item {
+        font-size: 2.5rem;
+        border-left: 5px solid transparent;
+        margin: 3.5rem 0;
+        @include transition(.2s ease-in all);
+
+        &.active,
+        &:hover {
+            border-left: 5px solid $primary-color;
+
+            & .sidebar__nav-item-link {
+                color: $primary-color;
+            }
+        }
+    }
+
+    &__nav-item-link {
+        color: $default-text-color;
+        text-decoration: none !important;
+        width: 100%;
+        height: 100%;
+        display: block;
+        padding-left: 2.5rem;
+    }
+}

@@ -1,0 +1,27 @@
+.form-row {
+    margin-bottom: 2rem;
+}
+
+.form-input {
+    display: block;
+    width: 100%;
+    font-size: $default-font-size;
+    color: $default-text-color;
+    border-radius: 3px;
+    background-color: #fff;
+    border: 1px solid;
+    border-color: #ddd;
+    height: 4rem;
+    line-height: 4rem;
+    padding: 0 1rem;
+    @include transition(.2s ease-in all);
+
+    &:active,
+    &:focus {
+        border-color: $primary-color;
+    }
+}
+
+.form-label {
+
+}
