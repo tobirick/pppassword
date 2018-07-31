@@ -8,12 +8,16 @@
 
 namespace App\Controllers\API;
 
+use App\Models\Client;
+use Core\Request;
 
 class ClientController
 {
-    public function index()
+    public function index(Request $request)
     {
+        $clients = Client::query()->select('*, id as client_id')->get();
 
+        $request->ajax()->send($clients)->json();
     }
 
     public function store()

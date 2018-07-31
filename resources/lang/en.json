@@ -15,6 +15,21 @@
         "User with provided E-Mail does not exist!": "User with provided E-Mail does not exist!",
         "Password successfully changed. You can now login with your new password!": "Password successfully changed. You can now login with your new password!",
         "Send": "Send",
-        "Forgot your password?": "Forgot your password?"
+        "Forgot your password?": "Forgot your password?",
+        "User": "User",
+        "Users": "Users",
+        "Go back": "Go back",
+        "Create new User": "Create new User",
+        "Update User": "Update User",
+        "Clients": "Clients",
+        "Client": "Client",
+        "Create new Client": "Create new Client",
+        "Update Client": "Update Client",
+        "View": "View",
+        "Delete": "Delete",
+        "Edit": "Edit",
+        "Create": "Create",
+        "Edit User": "Edit User",
+        "Edit Client": "Edit Client"
     }
 }

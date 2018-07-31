@@ -31,44 +31,44 @@
 .cursor-p { cursor: pointer; }
 .cursor-m { cursor: move; }
 
-@for $i from 1 through 5 {
+@for $i from 0 through 5 {
     .mt-#{$i} {
-        margin-top: #{$i}rem;
+        margin-top: #{$i}rem !important;
     }
 
     .mb-#{$i} {
-        margin-bottom: #{$i}rem;
+        margin-bottom: #{$i}rem !important;
     }
 
     .mr-#{$i} {
-        margin-right: #{$i}rem;
+        margin-right: #{$i}rem !important;
     }
 
     .ml-#{$i} {
-        margin-left: #{$i}rem;
+        margin-left: #{$i}rem !important;
     }
 
     .m-#{$i} {
-        margin: #{$i}rem;
+        margin: #{$i}rem !important;
     }
 
     .pt-#{$i} {
-        padding-top: #{$i}rem;
+        padding-top: #{$i}rem !important;
     }
 
     .pb-#{$i} {
-        padding-bottom: #{$i}rem;
+        padding-bottom: #{$i}rem !important;
     }
 
     .pr-#{$i} {
-        padding-right: #{$i}rem;
+        padding-right: #{$i}rem !important;
     }
 
     .pl-#{$i} {
-        padding-left: #{$i}rem;
+        padding-left: #{$i}rem !important;
     }
 
     .p-#{$i} {
-        padding: #{$i}rem;
+        padding: #{$i}rem !important;
     }
 }

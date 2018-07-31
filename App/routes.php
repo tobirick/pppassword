@@ -16,7 +16,7 @@ $router->get('/password/reset/[a:token]', Middleware::guestRoute('AuthController
 $router->post('/password/reset', Middleware::guestRoute('AuthController@passwordReset'), 'password.reset');
 
 // BASE ROUTES
-$router->get('/', Middleware::userRoute('IndexController@index'), 'index');
+$router->get('/dashboard', Middleware::userRoute('IndexController@index'), 'index');
 
 // USER ROUTES
 $router->get('/users', Middleware::userRoute('UserController@index'), 'users');

@@ -1,8 +1,11 @@
 .sidebar {
     z-index: 9;
-    flex: 0 0 15%;
     background-color: #fff;
     box-shadow: 0 3px 6px rgba(0, 0, 0, 0.16), 0 3px 6px rgba(0, 0, 0, 0.23);
+    position: fixed;
+    height: 100%;
+    width: 20rem;
+    top: 0;
     &__top {
         text-align: center;
         margin-bottom: 3rem;

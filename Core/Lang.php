@@ -6,9 +6,9 @@ use DirectoryIterator;
 
 class Lang
 {
-    public $currentLanguage = '';
-    public $languageArray = [];
-    public $allLanguagesArray = [];
+    private $currentLanguage = '';
+    private $languageArray = [];
+    private $allLanguagesArray = [];
 
     public function __construct($lang = 'en')
     {

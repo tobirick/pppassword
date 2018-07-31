@@ -35,8 +35,8 @@ class AddPasswordEntryFields extends AbstractMigration
         $password_record_entry_fields = $this->table('password_record_entry_fields');
         $password_record_entry_fields
             ->addColumn('password_record_id', 'integer')
-            ->addColumn('key', 'string', ['limit' => 255])
-            ->addColumn('value', 'string', ['limit' => 255])
+            ->addColumn('field_key', 'string', ['limit' => 255])
+            ->addColumn('field_value', 'string', ['limit' => 255])
             ->addIndex(['password_record_id'])
             ->addForeignKey('password_record_id', 'password_records', 'id', ['delete'=> 'CASCADE', 'update'=> 'NO_ACTION'])
             ->create();

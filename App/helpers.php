@@ -7,8 +7,9 @@ function ddt($data) {
 
 function route($routeName, $routeParams = []) {
     $url = (isset($_SERVER['HTTPS']) ? "https" : "http") . "://$_SERVER[HTTP_HOST]";
+    $lang = Core\Router::$lang->getCurrentLanguage();
 
-    return $url . Core\Router::route($routeName, $routeParams);
+    return $url . '/' . $lang . Core\Router::route($routeName, $routeParams);
 }
 
 function csrf() {
@@ -30,7 +31,7 @@ function asset($link) {
 }
 
 function checkIfActive($slug) {
-    if($slug === $_SERVER['REQUEST_URI']) {
+    if(strpos($_SERVER['REQUEST_URI'], $slug)) {
         echo 'active';
     }
 }

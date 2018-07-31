@@ -5,7 +5,7 @@
 <div class="container center-h-flex center-v-flex h-100">
     <div class="col-8">
         <div class="content-box">
-            <div class="content-box__title"><h1>{{$Lang->getTranslation('Login')}}</h2></div>
+            <div class="content-box__title"><h1>{{$Lang->getTranslation('Login')}}</h1></div>
                 @include('includes.errors')
             <form action="{{ route('login') }}" method="POST">
                 {{ csrf() }}

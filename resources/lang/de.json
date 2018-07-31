@@ -15,6 +15,21 @@
         "User with provided E-Mail does not exist!": "Benutzer mit eingebener E-Mail existiert nicht!",
         "Password successfully changed. You can now login with your new password!": "Passwort erfolgreich geändert. Du kannst dich jetzt mit deinem neuen Passwort einloggen!",
         "Send": "Senden",
-        "Forgot your password?": "Passwort vergessen?"
+        "Forgot your password?": "Passwort vergessen?",
+        "User": "Benutzer",
+        "Users": "Benutzer",
+        "Go back": "Zurück",
+        "Create new User": "Neuen Benutzer hinzufügen",
+        "Update User": "Bearbeite Benutzer",
+        "Clients": "Kunden",
+        "Client": "Kunde",
+        "Create new Client": "Neuen Kunden hinzufügen",
+        "Update Client": "Bearbeite Kunde",
+        "View": "Ansehen",
+        "Delete": "Löschen",
+        "Edit": "Bearbeiten",
+        "Create": "Erstellen",
+        "Edit User": "Bearbeite Benutzer",
+        "Edit Client": "Bearbeite Kunde"
     }
 }

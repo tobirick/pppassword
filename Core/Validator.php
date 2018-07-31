@@ -102,6 +102,10 @@ class Validator
 
     private function checkEmail($value)
     {
+        if ($value === '') {
+            return false;
+        }
+
         if (filter_var($value, FILTER_VALIDATE_EMAIL)) {
             return false;
         }

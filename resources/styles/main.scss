@@ -9,9 +9,16 @@
 @import 'components/button';
 @import 'components/form';
 @import 'components/table';
+@import 'components/breadcrumbs';
+@import 'components/popup';
+@import 'components/tags';
+@import 'components/empty-state';
+@import 'components/filters';
 
 @import 'layout/content';
 @import 'layout/header';
 @import 'layout/footer';
 @import 'layout/grid';
 @import 'layout/sidebar';
+
+@import 'pages/password';

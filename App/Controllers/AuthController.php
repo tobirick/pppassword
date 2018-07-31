@@ -2,7 +2,7 @@
 
 namespace App\Controllers;
 
-use \App\Models\User;
+use \App\Models\Auth;
 use \Core\BaseController;
 use \Core\Token;
 use \Core\Email;
@@ -26,11 +26,14 @@ class AuthController extends BaseController
             if ($errors) {
                 $this->redirectToRoute('login.index');
             } else {
-                $user = new User([
+                $user = new Auth([
                     'email' => $_POST['user']['email']
                 ]);
                 $success = $user->login($_POST['user']['password']);
                 if ($success === true) {
+                    $user->query()->where('email', $_POST['user']['email'])->update([
+                        'last_login' => date("Y-m-d H:i:s")
+                    ]);
                     $this->redirectToRoute('index');
                 } else {
                     $request->flash()->message($this->translate('Wrong credentials!'))->error()->set();
@@ -42,7 +45,7 @@ class AuthController extends BaseController
 
     public function logout()
     {
-        User::logout();
+        Auth::logout();
         $this->redirectToRoute('index');
     }
 
@@ -62,7 +65,7 @@ class AuthController extends BaseController
             if ($errors) {
                 $this->redirectToRoute('register.index');
             } else {
-                $user = new User([
+                $user = new Auth([
                     'email' => $_POST['user']['email']
                 ]);
                 $success = $user->register($_POST['user']['password']);
@@ -87,7 +90,7 @@ class AuthController extends BaseController
 
         $currentTime = time();
 
-        $user = User::query()->where([
+        $user = Auth::query()->where([
             'password_reset_token' => $passwordResetToken
         ])->where('password_reset_expiry_date > ' . $currentTime)->get();
 
@@ -110,7 +113,7 @@ class AuthController extends BaseController
             if ($errors) {
                 $this->redirectToRoute('password.forgot.index');
             } else {
-                $user = new User([
+                $user = new Auth([
                     'email' => $_POST['user']['email']
                 ]);
                 if ($user->checkIfUserExists()) {

@@ -39,6 +39,7 @@ class AddPasswordTable extends AbstractMigration
             ->addColumn('url', 'string', ['limit' => 255])
             ->addColumn('username', 'string', ['limit' => 255])
             ->addColumn('password', 'string', ['limit' => 255])
+            ->addColumn('email', 'string', ['limit' => 255])
             ->addColumn('notes', 'string', ['limit' => MysqlAdapter::TEXT_MEDIUM])
             ->addColumn('created_at', 'timestamp', ['null' => false, 'default' => '0000-00-00 00:00:00'])
             ->addColumn('updated_at', 'timestamp', ['null' => false, 'default' => 'CURRENT_TIMESTAMP'])

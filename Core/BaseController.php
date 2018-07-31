@@ -57,7 +57,8 @@ class BaseController
     public function redirect($url)
     {
         $redirectTo = $url;
-        header('Location: ' . $redirectTo);
+        $lang = Router::$lang->getCurrentLanguage();
+        header('Location: ' . '/' . $lang . $redirectTo);
     }
 
     public function redirectToRoute($routeName, $routeParams = [])

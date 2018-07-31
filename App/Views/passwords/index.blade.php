@@ -1,6 +1,6 @@
 @extends('partials.layout')
-@section('title', 'Passwords Page')
+@section('title', 'Passwords')
 
 @section('content')
-    <h1>Passwords Page</h1>
+    <h1>Passwords</h1>
 @stop

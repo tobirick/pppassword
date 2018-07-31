@@ -1,0 +1,27 @@
+.tags {
+    &--input {
+        display: flex;
+        flex-wrap: wrap;
+        align-items: center;
+        border: 1px solid;
+        border-color: #ddd;
+    }
+    &__wrapper {
+        display: flex;
+        flex-wrap: wrap;
+    }
+    &__item {
+        border-radius: 3px;
+        background-color: $primary-color;
+        margin: 0.5rem;
+        padding: 0.5rem;
+        color: #fff;
+    }
+
+    &__input {
+        & input {
+            background: transparent;
+            border: none;
+        }
+    }
+}

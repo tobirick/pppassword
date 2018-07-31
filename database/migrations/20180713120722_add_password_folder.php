@@ -36,11 +36,13 @@ class AddPasswordFolder extends AbstractMigration
         $folders = $this->table('folders');
         $folders
             ->addColumn('name', 'string', ['limit' => 255])
-            ->addColumn('position', 'integer')
+            ->addColumn('position', 'integer', ['null' => true])
             ->addColumn('is_client', 'integer', ['limit' => MysqlAdapter::INT_TINY, 'default' => 0])
-            ->addColumn('client_id', 'integer')
-            ->addColumn('parent_id', 'integer')
+            ->addColumn('client_id', 'integer', ['null' => true])
+            ->addColumn('parent_id', 'integer', ['null' => true])
             ->addColumn('created_by', 'integer')
+            ->addColumn('created_at', 'timestamp', ['null' => false, 'default' => '0000-00-00 00:00:00'])
+            ->addColumn('updated_at', 'timestamp', ['null' => false, 'default' => 'CURRENT_TIMESTAMP'])
             ->addIndex(['parent_id', 'client_id', 'created_by'])
             ->addForeignKey('created_by', 'users', 'id', ['delete'=> 'NO_ACTION', 'update'=> 'NO_ACTION'])
             ->addForeignKey('parent_id', 'folders', 'id', ['delete'=> 'CASCADE', 'update'=> 'NO_ACTION'])

@@ -52,33 +52,56 @@ export default {
         }
     },
     passwordRecords: {
-        fetchAll: clientId => {
+        fetchAll: () => {
+            return axios.get(`/api/passwords`).then(response => response.data);
+        },
+        fetchOne: passwordRecordId => {
             return axios
-                .get(`/api/clients/${clientId}/passwords`)
+                .get(`/api/passwords/${passwordRecordId}`)
                 .then(response => response.data);
         },
-        fetchOne: (clientId, passwordRecordId) => {
+        create: passwordRecord => {
             return axios
-                .get(`/api/clients/${clientId}/passwords/${passwordRecordId}`)
+                .post(`/api/passwords`, { passwordRecord })
                 .then(response => response.data);
         },
-        create: (clientId, passwordRecord) => {
+        update: (passwordRecordId, passwordRecord) => {
             return axios
-                .post(`/api/clients/${clientId}/passwords`, { passwordRecord })
-                .then(response => response.data);
-        },
-        update: (clientId, passwordRecordId, passwordRecord) => {
-            return axios
-                .put(`/api/clients/${clientId}/passwords/${passwordRecordId}`, {
+                .put(`/api/passwords/${passwordRecordId}`, {
                     passwordRecord
                 })
                 .then(response => response.data);
         },
-        delete: (clientId, passwordRecordId) => {
+        delete: passwordRecordId => {
             return axios
-                .delete(
-                    `/api/clients/${clientId}/passwords/${passwordRecordId}`
-                )
+                .delete(`/api/passwords/${passwordRecordId}`)
+                .then(response => response.data);
+        }
+    },
+    folders: {
+        fetchAll: () => {
+            return axios.get(`/api/folders`).then(response => response.data);
+        },
+        fetchOne: folderId => {
+            return axios
+                .get(`/api/folders/${folderId}`)
+                .then(response => response.data);
+        },
+        create: folder => {
+            return axios
+                .post(`/api/folders`, { folder })
+                .then(response => response.data);
+        },
+        update: (folderId, folder) => {
+            return axios
+                .put(`/api/folders/${folderId}`, {
+                    folder
+                })
+                .then(response => response.data);
+        },
+        delete: folderId => {
+            return axios
+                .delete(`/api/folders/${folderId}`)
                 .then(response => response.data);
         }
     }

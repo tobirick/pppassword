@@ -43,11 +43,12 @@ class Request
 
     public function validate($providedValidations, $type = '')
     {
-        ;
-        if ($this->isMethod('POST')) {
+        if ($this->isMethod('POST') && $_POST) {
             $data = $type ? $_POST[$type] : $_POST;
+        } else if(is_array($type)) {
+            $data = $type;
         } else {
-            $data = $this->ajax()->getJSON();
+            $data = $type ? $this->ajax()->getJSON()[$type] : $this->ajax()->getJSON();
         }
 
         $validator = new Validator($data, $providedValidations, $this->lang);
@@ -80,5 +81,11 @@ class Request
         $ajaxClass = new Ajax();
 
         return $ajaxClass;
+    }
+
+    public function user() {
+        if (isset($_SESSION['userid'])) {
+            return $_SESSION['userid'];
+        }
     }
 }

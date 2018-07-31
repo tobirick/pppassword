@@ -1,20 +1,89 @@
 .content-wrapper {
-    display: flex;
-    flex-wrap: nowrap;
     min-height: 100vh;
+    background-color: #f8f8f8;
 }
 
 #content {
-    flex-grow: 1;
+    padding-left: 20rem;
+    position: relative;
     background-color: #f8f8f8;
+    width: 100%;
+    height: 100%;
 }
 
 .content-box {
     background-color: #fff;
     padding: 2rem;
-    box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24);
-
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);
     &__title {
         margin-bottom: 1rem;
+    }
+    &--main {
+        margin: 4rem;
+        margin-top: 0;
+        top: 11rem;
+        position: relative;
+    }
+}
+
+.content-header {
+    z-index: 8;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #fff;
+    padding: 0.5rem 2rem;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);
+    position: fixed;
+    width: calc(100% - 20rem);
+    height: 7rem;
+    top: 0;
+    &>div {
+        display: flex;
+        align-items: center;
+    }
+}
+
+.loading {
+    &:before {
+        content: '';
+        position: absolute;
+        z-index: 99999;
+        width: 32px;
+        height: 32px;
+        left: 50%;
+        top: 50%;
+        border: 4px rgba($primary-color, 0.25) solid;
+        border-top: 4px rgba($primary-color, 1) solid;
+        border-radius: 50%;
+        @include animation(spCircRot .6s infinite linear);
+    }
+    &:after {
+        content: "";
+        position: absolute;
+        z-index: 99998;
+        background-color: #fff;
+        top: 0;
+        bottom: 0;
+        left: 0;
+        right: 0;
+    }
+}
+
+@-webkit-keyframes spCircRot {
+    from {
+        -webkit-transform: rotate(0deg);
+    }
+    to {
+        -webkit-transform: rotate(359deg);
+    }
+}
+
+@keyframes spCircRot {
+    from {
+        transform: rotate(0deg);
+    }
+    to {
+        transform: rotate(359deg);
     }
 }

@@ -25,11 +25,11 @@ $router->put('/api/clients/[i:clientId]', Middleware::userRoute('API\ClientContr
 $router->delete('/api/clients/[i:clientId]', Middleware::userRoute('API\ClientController@delete'), 'api.clients.delete');
 
 // FOLDER ROUTES
-$router->get('/api/folders', Middleware::userRoute('API\FoldersController@index'), 'api.folders');
-$router->post('/api/folders', Middleware::userRoute('API\FoldersController@store'), 'api.folders.store');
-$router->get('/api/folders/[i:folderId]', Middleware::userRoute('API\FoldersController@show'), 'api.folders.show');
-$router->put('/api/folders/[i:folderId]', Middleware::userRoute('API\FoldersController@update'), 'api.folders.update');
-$router->delete('/api/folders/[i:folderId]', Middleware::userRoute('API\FoldersController@delete'), 'api.folders.delete');
+$router->get('/api/folders', Middleware::userRoute('API\FolderController@index'), 'api.folders');
+$router->post('/api/folders', Middleware::userRoute('API\FolderController@store'), 'api.folders.store');
+$router->get('/api/folders/[i:folderId]', Middleware::userRoute('API\FolderController@show'), 'api.folders.show');
+$router->put('/api/folders/[i:folderId]', Middleware::userRoute('API\FolderController@update'), 'api.folders.update');
+$router->delete('/api/folders/[i:folderId]', Middleware::userRoute('API\FolderController@delete'), 'api.folders.delete');
 
 // PASSWORD ROUTES
 $router->get('/api/passwords', Middleware::userRoute('API\PasswordController@index'), 'api.passwords');

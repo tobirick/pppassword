@@ -15,6 +15,7 @@ class Database
     private $query;
     private $insert;
     private $update;
+    private $joins;
     private $statement;
     private $bindValuesArray;
     private $newModel;
@@ -34,6 +35,7 @@ class Database
         $this->query = '';
         $this->insert = '';
         $this->update = '';
+        $this->joins = '';
         $this->statement = '';
         $this->bindValuesArray = [];
     }
@@ -43,11 +45,15 @@ class Database
         $query = '';
         $query .= 'SELECT ' . $this->fields . ' FROM ' . $this->table;
 
-        if ($this->where) {
-            $query .= ' WHERE ' . $this->where . ';';
-        } else {
-            $query .= ';';
+        if ($this->joins) {
+            $query .= $this->joins;
         }
+
+        if ($this->where) {
+            $query .= ' WHERE ' . $this->where;
+        }
+
+        $query .= ';';
 
         $this->query = $query;
     }
@@ -262,7 +268,7 @@ class Database
         $this->bindValues();
 
         if ($this->statement->execute()) {
-            return true;
+            return $this->db->lastInsertId();
         } else {
             return false;
         }
@@ -333,5 +339,16 @@ class Database
         } else {
             return false;
         }
+    }
+
+    public function join($type, $array) {
+        $joinStr = '';
+        foreach($array as $table => $onCondition) {
+            $joinStr .= ' ' . strtoupper($type) . ' JOIN ' . $table . ' ON ' . $table . '.' . array_keys($onCondition)[0] . ' = ' .  $this->table . '.' . $onCondition[array_keys($onCondition)[0]];
+        }
+
+        $this->joins .= $joinStr;
+
+        return $this;
     }
 }

@@ -2,10 +2,25 @@
     margin-bottom: 2rem;
 }
 
+.form-icon {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    & svg {
+        @include transform(translateX(180%));
+    }
+
+    & .form-input {
+        text-indent: 3rem;
+    }
+}
+
 .form-input {
     display: block;
     width: 100%;
     font-size: $default-font-size;
+    font-family: $default-font-family;
     color: $default-text-color;
     border-radius: 3px;
     background-color: #fff;
@@ -15,13 +30,61 @@
     line-height: 4rem;
     padding: 0 1rem;
     @include transition(.2s ease-in all);
-
     &:active,
     &:focus {
         border-color: $primary-color;
     }
+
+    &--error {
+        color: $error-color;
+        border-color: $error-color;
+    }
+}
+
+.form-error {
+    &__message {
+        font-weight: bold;
+        color: $error-color;
+    }
 }
 
 .form-label {
+    font-weight: bold;
+    margin-bottom: 0.5rem;
+}
 
+.form-dropdown {
+    position: relative;
+    & input:focus,
+    & input:active {
+        &+.form-dropdown__dropdown {
+            opacity: 1;
+            visibility: visible;
+        }
+    }
+    &__dropdown {
+        background-color: #fff;
+        box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);
+        border-bottom-left-radius: 3px;
+        border-bottom-right-radius: 3px;
+        position: absolute;
+        width: 100%;
+        opacity: 0;
+        visibility: hidden;
+        @include transition(.2s ease-in all);
+        &--open {
+            opacity: 1;
+            visibility: visible;
+        }
+    }
+    &__item {
+        padding: 1rem;
+        cursor: pointer;
+        @include transition(.2s ease-in all);
+        &--active,
+        &:hover {
+            color: #fff;
+            background-color: $primary-color;
+        }
+    }
 }

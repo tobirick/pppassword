@@ -33,7 +33,7 @@ class AddUserDetails extends AbstractMigration
      */
     public function change()
     {
-        $user_details = $this->table('users_details');
+        $user_details = $this->table('user_details');
         $user_details
             ->addColumn('user_id', 'integer')
             ->addColumn('first_name', 'string', ['limit' => 255])
@@ -41,6 +41,8 @@ class AddUserDetails extends AbstractMigration
             ->addColumn('city', 'string', ['limit' => 255])
             ->addColumn('plz', 'string', ['limit' => 255])
             ->addColumn('street', 'string', ['limit' => 255])
+            ->addColumn('phone', 'string', ['limit' => 255])
+            ->addColumn('mobile_phone', 'string', ['limit' => 255])
             ->addColumn('notes', 'string', ['limit' => MysqlAdapter::TEXT_MEDIUM])
             ->addIndex(['user_id'])
             ->addForeignKey('user_id', 'users', 'id', ['delete'=> 'CASCADE', 'update'=> 'NO_ACTION'])
